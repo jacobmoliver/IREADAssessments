@@ -17,7 +17,27 @@ struct AssessmentTests {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }
-
+    
+    @Test("Create an assessment without multiple choice items.")
+    func createEmptyAssessment() {
+        let assessment = Assessment(title: "IREAD Practice Test")
+        #expect(assessment.items.isEmpty)
+    }
+    
+    @Test("Create a multiple choice item without an assessment.")
+    func createMultipleChoiceItem() {
+        let item = MultipleChoiceItem(
+            stem: "Find the word that means the same, or about the same, as 'delicious.'",
+            answerChoices: [
+                MultipleChoiceItem.AnswerChoice("highly"),
+                MultipleChoiceItem.AnswerChoice("tasty", isCorrect: true),
+                MultipleChoiceItem.AnswerChoice("deliciously"),
+                MultipleChoiceItem.AnswerChoice("deliciousness"),
+            ],
+        )
+        #expect(item.assessment == nil)
+    }
+    
     @Test("Add a multiple choice item to an assessment.")
     func addMultipleChoiceItemsToAssessment() {
         // Create and save an assessment without items.
