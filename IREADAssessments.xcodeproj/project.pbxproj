@@ -6,11 +6,27 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		C14732C230ABAC25008B1ADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1D7544330AA9380007647F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1D7544A30AA9380007647F0;
+			remoteInfo = IREADAssessments;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C14732BE30ABAC25008B1ADB /* IREADAssessmentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IREADAssessmentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D7544B30AA9380007647F0 /* IREADAssessments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IREADAssessments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		C14732BF30ABAC25008B1ADB /* IREADAssessmentsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = IREADAssessmentsTests;
+			sourceTree = "<group>";
+		};
 		C1D7544D30AA9380007647F0 /* IREADAssessments */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = IREADAssessments;
@@ -19,6 +35,11 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C14732BB30ABAC25008B1ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 		C1D7544830AA9380007647F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
@@ -31,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D7544D30AA9380007647F0 /* IREADAssessments */,
+				C14732BF30ABAC25008B1ADB /* IREADAssessmentsTests */,
 				C1D7544C30AA9380007647F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D7544B30AA9380007647F0 /* IREADAssessments.app */,
+				C14732BE30ABAC25008B1ADB /* IREADAssessmentsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,6 +69,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C14732BD30ABAC25008B1ADB /* IREADAssessmentsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C14732C630ABAC25008B1ADB /* Build configuration list for PBXNativeTarget "IREADAssessmentsTests" */;
+			buildPhases = (
+				C14732BA30ABAC25008B1ADB /* Sources */,
+				C14732BB30ABAC25008B1ADB /* Frameworks */,
+				C14732BC30ABAC25008B1ADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C14732C330ABAC25008B1ADB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C14732BF30ABAC25008B1ADB /* IREADAssessmentsTests */,
+			);
+			name = IREADAssessmentsTests;
+			productName = IREADAssessmentsTests;
+			productReference = C14732BE30ABAC25008B1ADB /* IREADAssessmentsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C1D7544A30AA9380007647F0 /* IREADAssessments */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1D7545830AA9381007647F0 /* Build configuration list for PBXNativeTarget "IREADAssessments" */;
@@ -74,6 +118,10 @@
 				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					C14732BD30ABAC25008B1ADB = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = C1D7544A30AA9380007647F0;
+					};
 					C1D7544A30AA9380007647F0 = {
 						CreatedOnToolsVersion = 27.0;
 					};
@@ -94,11 +142,17 @@
 			projectRoot = "";
 			targets = (
 				C1D7544A30AA9380007647F0 /* IREADAssessments */,
+				C14732BD30ABAC25008B1ADB /* IREADAssessmentsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C14732BC30ABAC25008B1ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 		C1D7544930AA9380007647F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
@@ -107,6 +161,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C14732BA30ABAC25008B1ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 		C1D7544730AA9380007647F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -114,7 +173,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C14732C330ABAC25008B1ADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1D7544A30AA9380007647F0 /* IREADAssessments */;
+			targetProxy = C14732C230ABAC25008B1ADB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C14732C430ABAC25008B1ADB /* Debug configuration for PBXNativeTarget "IREADAssessmentsTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFMK3M6QFY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmoliver.IREADAssessmentsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IREADAssessments.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IREADAssessments";
+			};
+			name = Debug;
+		};
+		C14732C530ABAC25008B1ADB /* Release configuration for PBXNativeTarget "IREADAssessmentsTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFMK3M6QFY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmoliver.IREADAssessmentsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IREADAssessments.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IREADAssessments";
+			};
+			name = Release;
+		};
 		C1D7545630AA9381007647F0 /* Debug configuration for PBXProject "IREADAssessments" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -306,6 +413,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C14732C630ABAC25008B1ADB /* Build configuration list for PBXNativeTarget "IREADAssessmentsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C14732C430ABAC25008B1ADB /* Debug configuration for PBXNativeTarget "IREADAssessmentsTests" */,
+				C14732C530ABAC25008B1ADB /* Release configuration for PBXNativeTarget "IREADAssessmentsTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
 		C1D7544630AA9380007647F0 /* Build configuration list for PBXProject "IREADAssessments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
