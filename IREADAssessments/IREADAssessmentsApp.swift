@@ -5,7 +5,7 @@ import SwiftData
 struct IREADAssessmentsApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            
+            Assessment.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
