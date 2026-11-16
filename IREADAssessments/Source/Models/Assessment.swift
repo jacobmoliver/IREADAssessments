@@ -8,7 +8,9 @@ class Assessment {
     var creationDate = Date()
     /// The title of the assessment.
     var title: String
-    
+    /// The list of multiple choice items on the assessment.
+    var items: [MultipleChoiceItem] = []
+
     init(title: String) {
         self.title = title
     }
