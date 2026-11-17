@@ -9,9 +9,13 @@ class Assessment {
     /// The title of the assessment.
     var title: String
     /// The list of multiple choice items on the assessment.
-    var items: [MultipleChoiceItem] = []
+    var items: [MultipleChoiceItem]
 
-    init(title: String) {
+    init(title: String, items: [MultipleChoiceItem]) throws {
+        guard !title.isEmpty else { throw AssessmentError.emptyTitle }
+        guard !items.isEmpty else { throw AssessmentError.zeroItems }
+        
         self.title = title
+        self.items = items
     }
 }
