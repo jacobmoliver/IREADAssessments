@@ -64,7 +64,7 @@ struct AssessmentTests {
         container.mainContext.insert(assessment)
         try container.mainContext.save()
         
-        let item = MultipleChoiceItem(
+        let item = try MultipleChoiceItem(
             on: assessment,
             stem: "Find the word that means the same, or about the same, as 'delicious.'",
             answers: [
@@ -99,8 +99,8 @@ struct AssessmentTests {
     }
     
     @Test("Create a multiple choice item without an assessment.")
-    func createMultipleChoiceItem() {
-        let item = MultipleChoiceItem(
+    func createMultipleChoiceItem() throws {
+        let item = try MultipleChoiceItem(
             stem: "Find the word that means the same, or about the same, as 'delicious.'",
             answers: [
                 MultipleChoiceItem.Answer("highly"),
@@ -111,4 +111,50 @@ struct AssessmentTests {
         )
         #expect(item.assessment == nil)
     }
+    
+    @Test("Create a multiple choice item with an empty stem.")
+    func createMultipleChoiceItemWithEmptyStem() throws {
+        #expect(throws: MultipleChoiceItemError.emptyStem) {
+            try MultipleChoiceItem(
+                stem: "",
+                answers: [
+                    MultipleChoiceItem.Answer("highly"),
+                    MultipleChoiceItem.Answer("tasty", isCorrect: true),
+                    MultipleChoiceItem.Answer("happy"),
+                    MultipleChoiceItem.Answer("slowly"),
+                ]
+            )
+        }
+    }
+    
+    @Test("Cannot have zero correct answers per multiple choice item.")
+    func cannotHaveZeroCorrectAnswers() throws {
+        #expect(throws: MultipleChoiceItemError.noCorrectAnswer) {
+            try MultipleChoiceItem(
+                stem: "Find the word that means the same, or about the same, as 'delicious.'",
+                answers: [
+                    MultipleChoiceItem.Answer("highly"),
+                    MultipleChoiceItem.Answer("smelly"),
+                    MultipleChoiceItem.Answer("happy"),
+                    MultipleChoiceItem.Answer("slowly"),
+                ]
+            )
+        }
+    }
+
+    @Test("Cannot have multiple correct answers per multiple choice item.")
+    func cannotHaveMultipleCorrectAnswers() throws {
+        #expect(throws: MultipleChoiceItemError.tooManyCorrectAnswers) {
+            try MultipleChoiceItem(
+                stem: "Find the word that means the same, or about the same, as 'delicious.'",
+                answers: [
+                    MultipleChoiceItem.Answer("highly"),
+                    MultipleChoiceItem.Answer("tasty", isCorrect: true),
+                    MultipleChoiceItem.Answer("appetizing", isCorrect: true),
+                    MultipleChoiceItem.Answer("slowly"),
+                ]
+            )
+        }
+    }
+    
 }
