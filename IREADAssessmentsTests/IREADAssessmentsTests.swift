@@ -47,7 +47,7 @@ struct AssessmentTests {
     
     @Test("Add a multiple choice item to an existing assessment.")
     func addItemsToAssessment() throws {
-        let assessment = try! Assessment(
+        let assessment = try Assessment(
             title: "IREAD Practice Test",
             items: [
                 MultipleChoiceItem(
@@ -83,7 +83,7 @@ struct AssessmentTests {
         #expect(assessment.items.contains(item))
         #expect(item.assessment === assessment)
     }
-
+    
 }
 
 @MainActor

@@ -19,7 +19,7 @@ class MultipleChoiceItem {
         
         // Validate there is one and only one correct answer.
         let correctAnswers: [Answer] = answers.filter(\MultipleChoiceItem.Answer.isCorrect)
-        guard correctAnswers.count != 0 else { throw MultipleChoiceItemError.noCorrectAnswer}
+        guard correctAnswers.count > 0 else { throw MultipleChoiceItemError.noCorrectAnswer}
         guard correctAnswers.count < 2 else { throw MultipleChoiceItemError.tooManyCorrectAnswers}
         
         self.assessment = assessment
