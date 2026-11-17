@@ -11,15 +11,15 @@ class MultipleChoiceItem {
     var stem: String
     /// The list of possible answers.
     @Attribute(.codable)
-    var answerChoices: [AnswerChoice]
+    var answers: [Answer]
 
-    init(on assessment: Assessment? = nil, stem: String, answerChoices: [AnswerChoice] = []) {
+    init(on assessment: Assessment? = nil, stem: String, answers: [Answer] = []) {
         self.assessment = assessment
         self.stem = stem
-        self.answerChoices = answerChoices
+        self.answers = answers
     }
     
-    struct AnswerChoice: Codable {
+    struct Answer: Codable {
         var text: String
         var isCorrect: Bool
         

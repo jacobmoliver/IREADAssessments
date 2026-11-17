@@ -26,11 +26,11 @@ struct AssessmentTests {
                     items: [
                     MultipleChoiceItem(
                         stem: "Find the word that has the same vowel sound as 'left'.",
-                        answerChoices: [
-                            MultipleChoiceItem.AnswerChoice("feel"),
-                            MultipleChoiceItem.AnswerChoice("belt", isCorrect: true),
-                            MultipleChoiceItem.AnswerChoice("hold"),
-                            MultipleChoiceItem.AnswerChoice("had"),
+                        answers: [
+                            MultipleChoiceItem.Answer("feel"),
+                            MultipleChoiceItem.Answer("belt", isCorrect: true),
+                            MultipleChoiceItem.Answer("hold"),
+                            MultipleChoiceItem.Answer("had"),
                         ]
                     )
                 ]
@@ -50,12 +50,15 @@ struct AssessmentTests {
         let assessment = try! Assessment(
             title: "IREAD Practice Test",
             items: [
-                MultipleChoiceItem(stem: "Find the word that has the same vowel sound as 'left'.", answerChoices: [
-                    MultipleChoiceItem.AnswerChoice("feel"),
-                    MultipleChoiceItem.AnswerChoice("belt", isCorrect: true),
-                    MultipleChoiceItem.AnswerChoice("hold"),
-                    MultipleChoiceItem.AnswerChoice("had"),
-                ])
+                MultipleChoiceItem(
+                    stem: "Find the word that has the same vowel sound as 'left'.",
+                    answers: [
+                        MultipleChoiceItem.Answer("feel"),
+                        MultipleChoiceItem.Answer("belt", isCorrect: true),
+                        MultipleChoiceItem.Answer("hold"),
+                        MultipleChoiceItem.Answer("had"),
+                    ]
+                )
             ]
         )
         container.mainContext.insert(assessment)
@@ -64,11 +67,11 @@ struct AssessmentTests {
         let item = MultipleChoiceItem(
             on: assessment,
             stem: "Find the word that means the same, or about the same, as 'delicious.'",
-            answerChoices: [
-                MultipleChoiceItem.AnswerChoice("highly"),
-                MultipleChoiceItem.AnswerChoice("tasty", isCorrect: true),
-                MultipleChoiceItem.AnswerChoice("happy"),
-                MultipleChoiceItem.AnswerChoice("slowly"),
+            answers: [
+                MultipleChoiceItem.Answer("highly"),
+                MultipleChoiceItem.Answer("tasty", isCorrect: true),
+                MultipleChoiceItem.Answer("happy"),
+                MultipleChoiceItem.Answer("slowly"),
             ]
         )
         container.mainContext.insert(item)
@@ -99,11 +102,11 @@ struct AssessmentTests {
     func createMultipleChoiceItem() {
         let item = MultipleChoiceItem(
             stem: "Find the word that means the same, or about the same, as 'delicious.'",
-            answerChoices: [
-                MultipleChoiceItem.AnswerChoice("highly"),
-                MultipleChoiceItem.AnswerChoice("tasty", isCorrect: true),
-                MultipleChoiceItem.AnswerChoice("happy"),
-                MultipleChoiceItem.AnswerChoice("slowly"),
+            answers: [
+                MultipleChoiceItem.Answer("highly"),
+                MultipleChoiceItem.Answer("tasty", isCorrect: true),
+                MultipleChoiceItem.Answer("happy"),
+                MultipleChoiceItem.Answer("slowly"),
             ],
         )
         #expect(item.assessment == nil)
