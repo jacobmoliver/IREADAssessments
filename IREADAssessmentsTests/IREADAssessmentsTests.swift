@@ -18,8 +18,8 @@ struct AssessmentTests {
         }
     }
     
-    @Test("Throw an error when creating an assesssment with an empty title.")
-    func createAssessmentWithEmptyTitle() throws {
+    @Test("Assessments cannot have empty titles.")
+    func cannotHaveEmptyTitle() throws {
         #expect(throws: AssessmentError.emptyTitle) {
             try Assessment(
                     title: "",
@@ -38,15 +38,15 @@ struct AssessmentTests {
         }
     }
     
-    @Test("Throw an error when creating an assessment without items.")
-    func createEmptyAssessment() throws {
+    @Test("Assessments cannot have zero multiple choice items.")
+    func cannotHaveZeroItems() throws {
         #expect(throws: AssessmentError.zeroItems) {
             try Assessment(title: "IREAD Practice", items: [])
         }
     }
     
-    @Test("Add a multiple choice item to an assessment.")
-    func addMultipleChoiceItemsToAssessment() throws {
+    @Test("Add a multiple choice item to an existing assessment.")
+    func addItemsToAssessment() throws {
         let assessment = try! Assessment(
             title: "IREAD Practice Test",
             items: [
@@ -63,6 +63,8 @@ struct AssessmentTests {
         )
         container.mainContext.insert(assessment)
         try container.mainContext.save()
+        
+        #expect (!assessment.items.isEmpty && assessment.items.count == 1)
         
         let item = try MultipleChoiceItem(
             on: assessment,
@@ -98,8 +100,8 @@ struct AssessmentTests {
         }
     }
     
-    @Test("Create a multiple choice item without an assessment.")
-    func createMultipleChoiceItem() throws {
+    @Test("Multiple choice items do not need assessments to initialize.")
+    func doesNotNeedAssessment() throws {
         let item = try MultipleChoiceItem(
             stem: "Find the word that means the same, or about the same, as 'delicious.'",
             answers: [
@@ -112,8 +114,8 @@ struct AssessmentTests {
         #expect(item.assessment == nil)
     }
     
-    @Test("Create a multiple choice item with an empty stem.")
-    func createMultipleChoiceItemWithEmptyStem() throws {
+    @Test("Multiple choice items cannot have empty stems.")
+    func cannotHaveEmptyStem() throws {
         #expect(throws: MultipleChoiceItemError.emptyStem) {
             try MultipleChoiceItem(
                 stem: "",
@@ -127,7 +129,7 @@ struct AssessmentTests {
         }
     }
     
-    @Test("Cannot have zero correct answers per multiple choice item.")
+    @Test("Multiple choice items cannot have zero correct answers.")
     func cannotHaveZeroCorrectAnswers() throws {
         #expect(throws: MultipleChoiceItemError.noCorrectAnswer) {
             try MultipleChoiceItem(
@@ -142,7 +144,7 @@ struct AssessmentTests {
         }
     }
 
-    @Test("Cannot have multiple correct answers per multiple choice item.")
+    @Test("Multiple choice items cannot have more than one correct answer.")
     func cannotHaveMultipleCorrectAnswers() throws {
         #expect(throws: MultipleChoiceItemError.tooManyCorrectAnswers) {
             try MultipleChoiceItem(
