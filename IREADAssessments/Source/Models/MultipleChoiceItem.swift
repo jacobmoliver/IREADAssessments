@@ -14,8 +14,8 @@ struct MultipleChoiceItem: Codable {
         
         // Validate there is one and only one correct answer.
         let correctAnswers: [Answer] = answers.filter(\MultipleChoiceItem.Answer.isCorrect)
-        guard correctAnswers.count > 0 else { throw MultipleChoiceItemError.noCorrectAnswer}
-        guard correctAnswers.count < 2 else { throw MultipleChoiceItemError.tooManyCorrectAnswers}
+        guard correctAnswers.count > 0 else { throw MultipleChoiceItemError.noCorrectAnswer }
+        guard correctAnswers.count < 2 else { throw MultipleChoiceItemError.multipleCorrectAnswers }
         
         self.stem = stem
         self.answers = answers
@@ -30,6 +30,37 @@ struct MultipleChoiceItem: Codable {
             MultipleChoiceItem.Answer("had"),
         ]
     )
+
+    static let sampleItems: [MultipleChoiceItem] = [
+        MultipleChoiceItem.sampleItem,
+        try! MultipleChoiceItem(
+            stem: "Find the word that has the same vowel sound as 'float'.",
+            answers: [
+                MultipleChoiceItem.Answer("broke", isCorrect: true),
+                MultipleChoiceItem.Answer("flat"),
+                MultipleChoiceItem.Answer("spoon"),
+                MultipleChoiceItem.Answer("splat"),
+            ]
+        ),
+        try! MultipleChoiceItem(
+            stem: "Choose the word that means the same, or about the same, as 'delicious'.",
+            answers: [
+                MultipleChoiceItem.Answer("highly"),
+                MultipleChoiceItem.Answer("tasty", isCorrect: true),
+                MultipleChoiceItem.Answer("happy"),
+                MultipleChoiceItem.Answer("slowly"),
+            ]
+        ),
+        try! MultipleChoiceItem(
+            stem: "Read these sentences. Choose the word that correctly completes both sentences.\nThe _____ is coming down the track.\nYou can _____ your dog to catch a ball.",
+            answers: [
+                MultipleChoiceItem.Answer("car"),
+                MultipleChoiceItem.Answer("teach"),
+                MultipleChoiceItem.Answer("train", isCorrect: true),
+                MultipleChoiceItem.Answer("horse"),
+            ]
+        ),
+    ]
 
     
     struct Answer: Codable {

@@ -1,7 +1,8 @@
 import Foundation
 
 enum AssessmentError: Error {
-    case titleCannotBeEmpty
-    case itemsCannotBeEmpty
+    case emptyTitle
+    case noItems
     case itemIndexOutOfBounds
+    case cannotRemoveLastItem
 }

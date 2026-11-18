@@ -4,5 +4,5 @@ enum MultipleChoiceItemError: Error {
     case emptyStem
     case noAnswers
     case noCorrectAnswer
-    case tooManyCorrectAnswers
+    case multipleCorrectAnswers
 }
