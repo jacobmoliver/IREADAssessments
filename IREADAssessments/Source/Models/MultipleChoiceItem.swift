@@ -2,18 +2,13 @@ import Foundation
 import SwiftData
 
 /// A multiple choice item for an assessment.
-@Model
-class MultipleChoiceItem {
-    /// The assessment that includes this item.
-    @Relationship(inverse: \Assessment.items)
-    var assessment: Assessment?
+struct MultipleChoiceItem: Codable {
     /// The stem (e.g., question or statement) that presents the problem.
     var stem: String
     /// The list of possible answers.
-    @Attribute(.codable)
     var answers: [Answer]
 
-    init(on assessment: Assessment? = nil, stem: String, answers: [Answer]) throws {
+    init(stem: String, answers: [Answer]) throws {
         guard !stem.isEmpty else { throw MultipleChoiceItemError.emptyStem }
         guard !answers.isEmpty else { throw MultipleChoiceItemError.noAnswers }
         
@@ -22,10 +17,20 @@ class MultipleChoiceItem {
         guard correctAnswers.count > 0 else { throw MultipleChoiceItemError.noCorrectAnswer}
         guard correctAnswers.count < 2 else { throw MultipleChoiceItemError.tooManyCorrectAnswers}
         
-        self.assessment = assessment
         self.stem = stem
         self.answers = answers
     }
+    
+    static let sampleItem = try! MultipleChoiceItem(
+        stem: "Find the word that has the same vowel sound as 'left'.",
+        answers: [
+            MultipleChoiceItem.Answer("feel"),
+            MultipleChoiceItem.Answer("belt", isCorrect: true),
+            MultipleChoiceItem.Answer("hold"),
+            MultipleChoiceItem.Answer("had"),
+        ]
+    )
+
     
     struct Answer: Codable {
         var text: String

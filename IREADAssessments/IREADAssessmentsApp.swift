@@ -6,7 +6,6 @@ struct IREADAssessmentsApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Assessment.self,
-            MultipleChoiceItem.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
